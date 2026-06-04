@@ -6,16 +6,23 @@ import projSpectreImg from './assets/images/proj_spectre.png';
 import projVulnImg from './assets/images/proj_vuln.png';
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="navbar glass-panel">
       <div className="nav-container">
         <a href="#" className="logo">&lt;Shivam Raj /&gt;</a>
-        <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
+        <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div className={`nav-links ${isOpen ? 'open' : ''}`}>
+          <a href="#about" onClick={() => setIsOpen(false)}>About</a>
+          <a href="#skills" onClick={() => setIsOpen(false)}>Skills</a>
+          <a href="#projects" onClick={() => setIsOpen(false)}>Projects</a>
+          <a href="#experience" onClick={() => setIsOpen(false)}>Experience</a>
+          <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
         </div>
       </div>
     </nav>
